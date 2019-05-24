@@ -1,0 +1,46 @@
+body{
+    display: flex;
+    justify-content: center;
+    font-family: gadugi;
+}
+
+
+table, th, td{
+    border: 2px solid black; 
+}
+table{
+    border-collapse: collapse;
+    margin: 45px auto 10px auto;
+}
+td{
+    height: 80px;
+    width: 80px;
+}
+
+.croix{
+	background-image: url(images/croix.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.rond{
+	background-image: url(images/rond.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#P1, #P2{
+    border: 2px solid black;
+    margin : 35px;
+    padding: 15px; 
+    text-align: center;
+}
+
+#reload {
+    margin: 5px auto 5px auto ;
+
+}
+
+#tableau{
+    text-align: center;
+}
