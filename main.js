@@ -138,9 +138,5 @@ $(function(){
         //check();
         console.log(caseID);
         return caseID;
-    });
-   
-   
-
-   
+    });   
 });
