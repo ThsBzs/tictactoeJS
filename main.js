@@ -2,8 +2,6 @@ $(function(){
     let caseID,//Préparation d'une variable pour récupérer les index des cases, renverra un array
         id = 1,//Préparation d'un ID de départ des cases, sera incrémenté lors de la création du tableau
         tour = 0,//Préparation d'une variable pour les tours, utilisée pour l'attribution des pions
-        arrCroix = [],//Tableau des cases "prises" par le joueur X
-        arrRond = [],//Tableau des cases "prises" par le joueur O
         victoire = false,
         message;//Permet de renvoyer quelque chose dans la fonction check
 
@@ -65,8 +63,6 @@ $(function(){
         P1.cases = [];
         P2.cases = [];
         $('td').removeClass();
-        //refreshP1();
-        //refreshP2();
     });
 
     let suite = [];
@@ -97,6 +93,16 @@ $(function(){
         return message;
     };
     
+   /* const arrSuite = [
+                        ["1","2","3"],
+                        ["4","5","6"],
+                        ["7","8","9"],
+                        ["1","4","7"],
+                        ["2","5","8"],
+                        ["3","6","9"],
+                        ["1","5","9"],
+                        ["3","5","7"]
+                     ];*/
     //Ajout de l'image
     $('td').click(function play(){
         //Essai pour éviter qu'on ne puisse recliquer sur une case.
@@ -105,7 +111,9 @@ $(function(){
             if (tour%2 == 0 && tour < 10){//Premier coup : les croix
                 $(this).addClass(P1.classe);
                 P1.cases.push(this.id);
-                console.log("arrCroix : " + P1.cases);
+                /*for(i=0; i < 8; i++){
+                    checkP1(arrSuite[i], P1.cases);
+                };*/
                 checkP1(["1","2","3"], P1.cases);
     			checkP1(["4","5","6"], P1.cases);
     			checkP1(["7","8","9"], P1.cases);
@@ -114,12 +122,12 @@ $(function(){
     			checkP1(["3","6","9"], P1.cases);
     			checkP1(["1","5","9"], P1.cases);
     			checkP1(["3","5","7"], P1.cases);
-    			//check();
-
             } else if (tour%2 == 1 && tour < 10){
                 $(this).addClass(P2.classe);
                 P2.cases.push(this.id);
-                console.log("arrRond : " + P2.cases);
+                /*for(i=0; i < 8; i++){
+                    checkP2(arrSuite[i], P2.cases);
+                };*/
                 checkP2(["1","2","3"], P2.cases);
     			checkP2(["4","5","6"], P2.cases);
     			checkP2(["7","8","9"], P2.cases);
@@ -128,15 +136,10 @@ $(function(){
     			checkP2(["3","6","9"], P2.cases);
     			checkP2(["1","5","9"], P2.cases);
     			checkP2(["3","5","7"], P2.cases);
-    			//check();
             }
-            /*check(P1);
-            check(P2);*/
             tour ++;
             refreshScore();
         } 
-        //check();
-        console.log(caseID);
         return caseID;
     });   
 });
